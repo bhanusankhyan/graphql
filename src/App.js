@@ -55,8 +55,8 @@ Query:{
   },
 }
 
-function root   (){ (fetch("https://api.github.com/users/bhanusankhyan/repos").then((response) => response.data).then((responseJson)=>{
-   {id: () => 1}
+async function root   (){ await (fetch("https://api.github.com/users/bhanusankhyan/repos").then((response) => response.data).then((responseJson)=>{
+  return {id: () => 1}
   
 }))}
 
@@ -70,7 +70,7 @@ function root   (){ (fetch("https://api.github.com/users/bhanusankhyan/repos").t
   
      })*/
 
-    graphql(schema, '{ id, name }', await root).then((response) =>{
+    graphql(schema, '{ id, name, full_name }',  root).then((response) =>{
       console.log(response)
     })
     //console.log(schema)
