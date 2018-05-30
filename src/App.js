@@ -68,6 +68,16 @@ var root =  { id: async() => { var con = await fetch("https://api.github.com/use
 // console.log(responseJson[0].name)
  alert ("Hello")
  return conJson[0].id}, 
+ name: async ()=>{var con = await fetch("https://api.github.com/users/bhanusankhyan/repos")
+ var conJson = await con.json()
+// console.log(responseJson[0].name)
+alert ("Hello")
+return conJson[0].name},
+full_name: async ()=>{var con = await fetch("https://api.github.com/users/bhanusankhyan/repos")
+ var conJson = await con.json()
+// console.log(responseJson[0].name)
+alert ("Hello")
+return conJson[0].full_name} 
 }
 
    //var root = { name: () => 'Hello world!' };
