@@ -44,21 +44,31 @@ type Query{
 );
 
 
+
+
 var new_root = {id: () => 'Hello'};
 
 
 
  const resolver = {   
 Query:{
-  hello: () => 'Hello world!' ,
+  id: (parent, args, context, info) => 'Hello world!' ,
 
   },
 }
-
-async function root   (){ await (fetch("https://api.github.com/users/bhanusankhyan/repos").then((response) => response.data).then((responseJson)=>{
-  return {id: () => 1}
-  
-}))}
+function result(){
+ var res =  (fetch("https://api.github.com/users/bhanusankhyan/repos").then((response) => response.data).then((responseJson)=>{
+   {id: () => 1}
+  console.log(responseJson[0].name)
+  alert ("Hello")
+}))
+}
+var root =  { id: async() => { var con = await fetch("https://api.github.com/users/bhanusankhyan/repos")
+  var conJson = await con.json()
+// console.log(responseJson[0].name)
+ alert ("Hello")
+ return conJson[0].id}, 
+}
 
    //var root = { name: () => 'Hello world!' };
 
