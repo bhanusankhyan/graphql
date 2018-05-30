@@ -46,7 +46,7 @@ type Query{
 
 
 
-var new_root = {id: () => 'Hello'};
+/*var new_root = {id: () => 'Hello'};
 
 
 
@@ -62,7 +62,7 @@ function result(){
   console.log(responseJson[0].name)
   alert ("Hello")
 }))
-}
+}*/
 var root =  { id: async() => { var con = await fetch("https://api.github.com/users/bhanusankhyan/repos")
   var conJson = await con.json()
 // console.log(responseJson[0].name)
